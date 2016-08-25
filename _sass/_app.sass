@@ -1,0 +1,47 @@
+
+// App specific styles
+
+.underlined-dropdown
+    background: transparent
+    border-width: 0px 0px 1px 0px
+    text-align: center
+    -webkit-appearance: none
+    &:focus
+        outline-width: thin
+        outline-style: solid
+        outline-color: rgba(255,255,255,0.0)
+        outline-offset: -1px
+    option
+        background: #222
+        font-size: 12px
+        text-align: center
+
+.table
+    border-radius: 10px
+    margin-top: 10px
+    font-size: 14px
+    th,
+    td
+        text-align: right
+        vertical-align: middle
+    th:nth-of-type(1),
+    td:nth-of-type(1)
+        text-align: left
+
+.table-hover > tbody > tr:hover
+    > td,
+    > th
+        background-color: rgba(0, 229, 171, 0.16)
+
+
+.drop-here
+    height: calc(100% - 50px)
+    font-size: 19px
+    font-weight: bold
+    text-align: center
+    span
+        display: inline-block
+
+#clear
+    text-align: center
+    cursor: pointer

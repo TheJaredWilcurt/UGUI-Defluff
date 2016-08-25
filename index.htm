@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+  <head>
+
+    <!-- Automatically updated by your package.json file. -->
+    <title class="applicationTitle">UGUI: Defluff</title>
+
+    <link rel="icon" type="image/x-icon" href="_img/favicon.ico">
+    <link rel="stylesheet" href="_style/ven.bootstrap.css">
+    <!-- Change this next line from cerulean to whatever swatch you pick. -->
+    <link rel="stylesheet" href="_style/ven.bootswatch/darkly.min.css" data-swatch="swapper">
+    <link rel="stylesheet" href="_style/ugui-devtools.css">
+    <link rel="stylesheet" href="_style/style.css">
+
+    <!-- UGUI requires jQuery 1.9.1 or above. -->
+    <script type="text/javascript" src="_scripts/ven.jquery-2.1.1.min.js"></script>
+    <script type="text/javascript" src="_scripts/ven.bootstrap-3.2.0.min.js"></script>
+    <script type="text/javascript" src="_scripts/ven.dropdowns-enhancement.js"></script>
+    <script type="text/javascript" src="_scripts/ven.bootstrap-slider.min.js"></script>
+    <script type="text/javascript" src="_scripts/ugui.js"></script>
+    <script type="text/javascript" src="_scripts/app.js"></script>
+    <cmd executable="defluff"></cmd>
+  </head>
+  <body role="document" class="prod">
+
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand">
+            <img src="_img/logo.png" alt="Logo" />
+            <span class="applicationTitle">UGUI: Defluff</span>
+          </a>
+        </div>
+        <div class="navbar-collapse collapse">
+          <ul class="nav navbar-nav">
+            <li><a href="#about">About</a></li>
+            <li><a href="#exit">Exit</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container" role="main">
+
+      <section>
+        <form id="defluff" role="form-inline">
+
+          <div class="row save-options">
+            <div class="col-xs-12 col-s-12 col-md-12 col-l-12 text-center">
+              <select data-argName="overwrite" class="underlined-dropdown" required="required">
+                <option value="replace">Save over existing file</option>
+                <option value="retain">Create a new file</option>
+              </select>
+              when the filesize is
+              <select data-argName="filesize" class="underlined-dropdown" required="required">
+                <option value="samesmall">the same or smaller</option>
+                <option value="samelarge">the same or larger</option>
+                <option value="smaller">smaller than original</option>
+                <option value="larger">larger than original</option>
+                <option value="always">anything</option>
+              </select>.
+            </div>
+          </div>
+
+          <table class="multi-file table table-bordered table-striped table-hover table-condensed">
+            <thead>
+              <tr>
+                <th>File</th>
+                <th>Before</th>
+                <th>After</th>
+                <th>Profit</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="empty-state">
+                <td colspan="4">
+                  <div class="drop-here">
+                    <span>Drag and drop your files here,</span>
+                    <span>or <a href="#browse">Click here</a> to browse.</span>
+                    <input id="browse" class="hide" type="file" accept=".PNG" />
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr id="totals">
+                <td id="clear">Clear <i class="glyphicon glyphicon-trash"></i></td>
+                <td id="before"></td>
+                <td id="after"></td>
+                <td id="profit"></td>
+              </tr>
+            </tfoot>
+          </table>
+
+        </form>
+      </section>
+
+      <div id="aboutModal" class="modal">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="glyphicon glyphicon-remove pull-right" data-dismiss="modal" aria-hidden="true"></span>
+              <h4>About</h4>
+            </div>
+            <div class="modal-body">
+
+              <div class="panel panel-primary">
+                <div class="panel-heading">
+                  <span class="pull-right versionApp" title="Version">V2.0.0</span>
+                  <h3 class="panel-title">About <span class="applicationTitle">UGUI: Defluff</span></h3>
+                </div>
+                <div class="panel-body">
+                  <p class="well well-sm">
+                    <strong>UGUI: Defluff</strong> is a GUI for the command line application Defluff. Defluff reorganizes the structure of your PNG file's data-stream to find better ways of organizing the data, this in turn can sometimes shave a few bytes off the filesize.
+                  </p>
+                  <p>
+                    <span class="applicationName">UGUI: Defluff</span> created by <a class="authorName external-link" href="http://thejaredwilcurt.com">The Jared Wilcurt</a><br />
+                    <span class="applicationName">UGUI: Defluff</span> is a GUI for the command line program <a class="external-link" href="http://j-o.users.sourceforge.net">defluff</a> (v0.3.2) created by <em>Joachim Henke</em>.<br />
+                    <span class="applicationName">UGUI: Defluff</span> icon created by <a href="https://thenounproject.com/jevgeni.striganov" class="external-link">Jevgeni Striganov</a>.
+                  </p>
+
+                  <p id="updateResults"></p>
+                  <p class="text-center">
+                    <button id="updateChecker" class="btn btn-primary">Check for updates</button>
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div> <!-- end container -->
+  </body>
+</html>
