@@ -18,7 +18,7 @@ If you have Node.JS installed:
 * * *
 
 
-###Credits
+### Credits
 
 **People:**
 
@@ -30,9 +30,9 @@ If you have Node.JS installed:
 
 * [UGUI](http://ugui.io) - Library, Framework, and Boilerplate that allowed this project to exist.
 * [NW.JS](http://nwjs.io) - The foundation of UGUI! Special thanks to [Roger Wang](https://github.com/rogerwang).
- * [IO.JS](http://iojs.org)
- * [Chromium](http://www.chromium.org)
- * [V8](https://code.google.com/p/v8)
+  * [IO.JS](http://iojs.org)
+  * [Chromium](http://www.chromium.org)
+  * [V8](https://code.google.com/p/v8)
 * [jQuery](http://jquery.com)
 * [Twitter Bootstrap](http://getbootstrap.com)
 * [Bootswatch](http://bootswatch.com)
