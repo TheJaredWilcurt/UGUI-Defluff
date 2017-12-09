@@ -16,6 +16,38 @@ function numberCommas (num) {
     return num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+function clean (str) {
+    str = str.replace(/\ /g, '_');
+    str = str.replace(/\!/g, '_');
+    str = str.replace(/\)/g, '_');
+    str = str.replace(/\(/g, '_');
+    str = str.replace(/\$/g, '_');
+    str = str.replace(/\#/g, '_');
+    str = str.replace(/\%/g, '_');
+    str = str.replace(/\^/g, '_');
+    str = str.replace(/\&/g, '_');
+    str = str.replace(/\=/g, '_');
+    str = str.replace(/\+/g, '_');
+    str = str.replace(/\./g, '_');
+    str = str.replace(/\,/g, '_');
+    str = str.replace(/\</g, '_');
+    str = str.replace(/\>/g, '_');
+    str = str.replace(/\?/g, '_');
+    str = str.replace(/\"/g, '_');
+    str = str.replace(/\'/g, '_');
+    str = str.replace(/\:/g, '_');
+    str = str.replace(/\;/g, '_');
+    str = str.replace(/\{/g, '_');
+    str = str.replace(/\}/g, '_');
+    str = str.replace(/\[/g, '_');
+    str = str.replace(/\]/g, '_');
+    str = str.replace(/\|/g, '_');
+    str = str.replace(/\@/g, '_');
+    str = str.replace(/\~/g, '_');
+    str = str.replace(/\`/g, '_');
+    return str;
+}
+
 //Set up ability to use "startsWith" and "endsWith"
 String.prototype.startsWith = function (str){
     return this.slice(0, str.length) == str;
@@ -146,8 +178,8 @@ $(document).ready(function () {
                 var sizeSetting = ugui.args.filesize.value;
                 var temp = tempSize.bytes;
                 var orig = origSize.bytes;
-                $('.' + nameID + ' .after').text(numberCommas(temp));
-                $('.' + nameID + ' .profit').text(numberCommas(orig - temp));
+                $('.' + clean(nameID) + ' .after').text(numberCommas(temp));
+                $('.' + clean(nameID) + ' .profit').text(numberCommas(orig - temp));
                 updateFooter();
                 if (
                   (sizeSetting == 'samesmall' && (temp <= orig)) ||
@@ -210,7 +242,7 @@ $(document).ready(function () {
             var file = files[i];
             if (file.name.endsWith('.png')) {
                 // cat.png => cat
-                var fileName = file.name.slice(0,-4);
+                var fileName = path.parse(file.name).name;
                 // 1472041859195 => "859195"
                 var id = String(Date.now()).slice(7);
                 // 859195 + 0 + 1 = 859196
@@ -218,7 +250,7 @@ $(document).ready(function () {
                 // cat__859196
                 var nameID = fileName + '__' + id;
                 var row =
-                '<tr class="file-row ' + nameID + '">' +
+                '<tr class="file-row ' + clean(nameID) + '">' +
                   '<td class="name">' + fileName + '</td>' +
                   '<td class="before">' + numberCommas(file.size) + '</td>' +
                   '<td class="after"></td>' +
