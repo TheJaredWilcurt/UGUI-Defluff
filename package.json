@@ -28,7 +28,7 @@
   "window": {
     "title": "UGUI: Defluff",
     "icon": "_img/icon32.png",
-    "toolbar": true,
+    "toolbar": false,
     "resizable": true,
     "visible": true,
     "transparent": false,
